@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: Enemy Sphere Factory
   m_EditorClassIdentifier: 
   small:
-    prefab: {fileID: 7012074777765284301, guid: 2bf7f5644e17e4501a5a0de8586b2f74,
-      type: 3}
+    prefab: {fileID: 965561983608661434, guid: 50496e68cc1ec894ca1555aacc031121, type: 3}
     scale:
       min: 0.5
       max: 0.6
@@ -28,8 +27,7 @@ MonoBehaviour:
       min: 40
       max: 50
   medium:
-    prefab: {fileID: 7012074777765284301, guid: 16329050fd4864868945a491cebf61c8,
-      type: 3}
+    prefab: {fileID: 965561983608661434, guid: 50496e68cc1ec894ca1555aacc031121, type: 3}
     scale:
       min: 0.9
       max: 1
@@ -43,8 +41,7 @@ MonoBehaviour:
       min: 90
       max: 120
   large:
-    prefab: {fileID: 7012074777765284301, guid: c76e4bbbf775a4562b53760f407d466b,
-      type: 3}
+    prefab: {fileID: 965561983608661434, guid: 50496e68cc1ec894ca1555aacc031121, type: 3}
     scale:
       min: 1.2
       max: 1.4
