@@ -1,0 +1,11 @@
+Tower Defense Game:
+3 Rounds: (Maybe three different base terrains)
+Each Round:
+	First 45 seconds: Setup your Defense Base
+	Next 90 seconds: Attack opponents Defense Base
+	Winner Decided based on the number of troops that reach the finishing point
+
+What all needs to be communicated?
+Player Defense Bases to each other in the room.
+Number of troops that reach the finishing point.
+  
