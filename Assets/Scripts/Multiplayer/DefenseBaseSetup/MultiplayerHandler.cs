@@ -11,6 +11,9 @@ public class MultiplayerHandler : MonoBehaviourPunCallbacks
     [SerializeField]
     DefenseBaseBoard board;
 
+    [SerializeField]
+    DefenseBaseSetup setup;
+
     private void Start()
     {
         playerNameText.text = PhotonNetwork.NickName;
@@ -36,6 +39,7 @@ public class MultiplayerHandler : MonoBehaviourPunCallbacks
 
     public void SendBoardData()
     {
+        setup.isReady = true;
         int[] boardLogic = board.GenerateBoardLogic();
         photonView.RPC("RecieveBoardData", RpcTarget.Others, boardLogic);
     }

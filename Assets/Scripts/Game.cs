@@ -39,7 +39,8 @@ public class Game : MonoBehaviour {
 	static Game instance;
 
 	public static void EnemyReachedDestination () {
-		instance.playerHealth -= 1;
+        //instance.playerHealth -= 1;
+        Debug.Log("Player reached destination");
 	}
 
 	public static void SpawnEnemy (EnemyFactory factory, EnemyType type) {
@@ -71,7 +72,7 @@ public class Game : MonoBehaviour {
 		playerHealth = startingPlayerHealth;
 		board.Initialize(boardSize, tileContentFactory);
 		board.ShowGrid = true;
-		activeScenario = scenario.Begin();
+		//activeScenario = scenario.Begin();
 	}
 
 	void BeginNewGame () {
@@ -79,7 +80,7 @@ public class Game : MonoBehaviour {
 		enemies.Clear();
 		nonEnemies.Clear();
 		board.Clear();
-		activeScenario = scenario.Begin();
+		//activeScenario = scenario.Begin();
 	}
 
 	void OnValidate () {

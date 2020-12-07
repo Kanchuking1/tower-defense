@@ -85,7 +85,7 @@ public class Enemy : GameBehavior {
 		progress += Time.deltaTime * progressFactor;
 		while (progress >= 1f) {
 			if (tileTo == null) {
-				Game.EnemyReachedDestination();
+				AttackBaseSetup.EnemyReachedDestination();
 				animator.PlayOutro();
 				targetPointCollider.enabled = false;
 				return true;

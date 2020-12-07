@@ -6,6 +6,8 @@ public class DefenseBaseSetup : MonoBehaviour
     const float pausedTimeScale = 0f;
     const float playSpeed = 1f;
 
+    public bool isReady = false;
+
     [SerializeField]
     Vector2Int boardSize = new Vector2Int(11, 11);
 
@@ -51,6 +53,14 @@ public class DefenseBaseSetup : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+        if (isReady)
+        {
+            return;
+        }
         if (Input.GetMouseButtonDown(0))
         {
             HandleTouch();
@@ -91,11 +101,6 @@ public class DefenseBaseSetup : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.B))
         {
             BeginNewGame();
-        }
-
-        if (Input.GetKeyDown(KeyCode.N))
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
 
         Physics.SyncTransforms();

@@ -23,7 +23,7 @@ public class Shell : WarEntity {
 		p.y -= 0.5f * 9.81f * age * age;
 
 		if (p.y <= 0f) {
-			Game.SpawnExplosion().Initialize(targetPoint, blastRadius, damage);
+			SpawnHandler.SpawnExplosion().Initialize(targetPoint, blastRadius, damage);
 			OriginFactory.Reclaim(this);
 			return false;
 		}
@@ -33,7 +33,7 @@ public class Shell : WarEntity {
 		d.y -= 9.81f * age;
 		transform.localRotation = Quaternion.LookRotation(d);
 
-		Game.SpawnExplosion().Initialize(p, 0.1f, 0f);
+		SpawnHandler.SpawnExplosion().Initialize(p, 0.1f, 0f);
 		return true;
 	}
 }

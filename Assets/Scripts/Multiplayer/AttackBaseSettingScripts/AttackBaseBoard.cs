@@ -36,6 +36,8 @@ public class AttackBaseBoard : MonoBehaviour
             {
                 tiles[i].Content = contentFactory.Get((TowerType)(boardLogic[i] - 4));
             }
+            updatingContent.Add(tiles[i].Content);
+            FindPaths();
         }
     }
 
@@ -92,6 +94,14 @@ public class AttackBaseBoard : MonoBehaviour
         Clear();
     }
 
+    public void GameUpdate()
+    {
+        for (int i = 0; i < updatingContent.Count; i++)
+        {
+            updatingContent[i].GameUpdate();
+        }
+    }
+
     public void Clear()
     {
         foreach (GameTile tile in tiles)
@@ -100,5 +110,57 @@ public class AttackBaseBoard : MonoBehaviour
         }
         spawnPoints.Clear();
         updatingContent.Clear();
+    }
+
+    bool FindPaths()
+    {
+        foreach (GameTile tile in tiles)
+        {
+            if (tile.Content.Type == GameTileContentType.Destination)
+            {
+                tile.BecomeDestination();
+                searchFrontier.Enqueue(tile);
+            }
+            else
+            {
+                tile.ClearPath();
+            }
+        }
+        if (searchFrontier.Count == 0)
+        {
+            return false;
+        }
+
+        while (searchFrontier.Count > 0)
+        {
+            GameTile tile = searchFrontier.Dequeue();
+            if (tile != null)
+            {
+                if (tile.IsAlternative)
+                {
+                    searchFrontier.Enqueue(tile.GrowPathNorth());
+                    searchFrontier.Enqueue(tile.GrowPathSouth());
+                    searchFrontier.Enqueue(tile.GrowPathEast());
+                    searchFrontier.Enqueue(tile.GrowPathWest());
+                }
+                else
+                {
+                    searchFrontier.Enqueue(tile.GrowPathWest());
+                    searchFrontier.Enqueue(tile.GrowPathEast());
+                    searchFrontier.Enqueue(tile.GrowPathSouth());
+                    searchFrontier.Enqueue(tile.GrowPathNorth());
+                }
+            }
+        }
+
+        foreach (GameTile tile in tiles)
+        {
+            if (!tile.HasPath)
+            {
+                return false;
+            }
+        }
+
+        return true;
     }
 }

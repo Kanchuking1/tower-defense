@@ -1030,6 +1030,7 @@ GameObject:
   - component: {fileID: 1169092039}
   - component: {fileID: 1169092038}
   - component: {fileID: 1169092040}
+  - component: {fileID: 1169092041}
   m_Layer: 0
   m_Name: MultiplayerHanlder
   m_TagString: Untagged
@@ -1052,6 +1053,7 @@ MonoBehaviour:
   playerNameText: {fileID: 117806917}
   oppNameText: {fileID: 992836097}
   board: {fileID: 495667348}
+  setup: {fileID: 2025098019}
 --- !u!4 &1169092039
 Transform:
   m_ObjectHideFlags: 0
@@ -1088,6 +1090,21 @@ MonoBehaviour:
   viewIdField: 1
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &1169092041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1169092037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecfd70565895b124dbe0feb02eff62ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Timer: {fileID: 1299941976}
+  handler: {fileID: 1169092038}
+  setup: {fileID: 2025098019}
 --- !u!1 &1196562023
 GameObject:
   m_ObjectHideFlags: 0
@@ -1212,6 +1229,84 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1218397808}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1299941975
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1299941978}
+  - component: {fileID: 1299941977}
+  - component: {fileID: 1299941976}
+  m_Layer: 5
+  m_Name: TimerText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1299941976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1299941975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 110
+    m_FontStyle: 1
+    m_BestFit: 0
+    m_MinSize: 1
+    m_MaxSize: 136
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 45
+--- !u!222 &1299941977
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1299941975}
+  m_CullTransparentMesh: 0
+--- !u!224 &1299941978
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1299941975}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1988095434}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -3, y: -249.8}
+  m_SizeDelta: {x: 160, y: 145.11908}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1610310294
 GameObject:
   m_ObjectHideFlags: 0
@@ -1406,6 +1501,7 @@ RectTransform:
   - {fileID: 1610310295}
   - {fileID: 824706439}
   - {fileID: 765810254}
+  - {fileID: 1299941978}
   m_Father: {fileID: 2039458828}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1494,6 +1590,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4efa162863c7f246b5e70d445a5ebf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isReady: 0
   boardSize: {x: 11, y: 11}
   board: {fileID: 495667348}
   tileContentFactory: {fileID: 11400000, guid: 50b576fe36976479e97d482d8067eae9, type: 2}
@@ -1510,7 +1607,7 @@ GameObject:
   - component: {fileID: 2039458830}
   - component: {fileID: 2039458829}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: GameOverLay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

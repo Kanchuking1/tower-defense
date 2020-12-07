@@ -4,25 +4,38 @@ public class SpawnHandler : MonoBehaviour
 {
     private EnemyType selectedEnemyType;
 
+    public AttackBaseBoard board;
+
     [SerializeField]
-    private AttackBaseBoard board;
+    public GameBoard boardOld;
+
+    [SerializeField]
+    WarFactory warFactory = default;
 
     //The input ray
     Ray TouchRay => Camera.main.ScreenPointToRay(Input.mousePosition);
 
     GameBehaviorCollection enemies = new GameBehaviorCollection();
+    GameBehaviorCollection nonEnemies = new GameBehaviorCollection();
 
     [SerializeField]
     EnemyFactory factory;
+
+    static SpawnHandler instance;
 
     private void Start()
     {
         selectedEnemyType = 0;
     }
 
-    public void SelectSquad(EnemyType type)
+    private void OnEnable()
     {
-        selectedEnemyType = type;
+        instance = this;
+    }
+
+    public void SelectSquad(int index)
+    {
+        selectedEnemyType = (EnemyType)index;
     }
 
     private void Update()
@@ -31,6 +44,24 @@ public class SpawnHandler : MonoBehaviour
         {
             HandleTouch();
         }
+
+        enemies.GameUpdate();
+        nonEnemies.GameUpdate();
+        board.GameUpdate();
+    }
+
+    public static Explosion SpawnExplosion()
+    {
+        Explosion explosion = instance.warFactory.Explosion;
+        instance.nonEnemies.Add(explosion);
+        return explosion;
+    }
+
+    public static Shell SpawnShell()
+    {
+        Shell shell = instance.warFactory.Shell;
+        instance.nonEnemies.Add(shell);
+        return shell;
     }
 
     public void HandleTouch()
@@ -41,6 +72,6 @@ public class SpawnHandler : MonoBehaviour
 
         Enemy enemy = factory.Get(selectedEnemyType);
         enemy.SpawnOn(tile);
-        enemies.Add(enemy);
+        instance.enemies.Add(enemy);
     }
 }
