@@ -8,4 +8,7 @@ Each Round:
 What all needs to be communicated?
 Player Defense Bases to each other in the room.
 Number of troops that reach the finishing point.
+
+Limited number of troops and towers allowed.
+
   
